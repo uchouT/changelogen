@@ -1,4 +1,3 @@
-import { readPackageJSON } from "pkg-types";
 import type { Reference } from "./git";
 import type { ResolvedChangelogConfig } from "./config";
 import { getGitRemoteURL } from "./git";
@@ -69,14 +68,6 @@ export function formatCompareChanges(
 }
 
 export async function resolveRepoConfig(cwd: string) {
-  // Try closest package.json
-  const pkg = await readPackageJSON(cwd).catch(() => {});
-  if (pkg && pkg.repository) {
-    const url =
-      typeof pkg.repository === "string" ? pkg.repository : pkg.repository.url;
-    return getRepoConfig(url);
-  }
-
   try {
     const gitRemote = getGitRemoteURL(cwd);
     if (gitRemote) {

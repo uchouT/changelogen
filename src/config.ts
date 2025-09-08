@@ -109,6 +109,10 @@ export async function resolveChangelogConfig(
     config.to = await getCurrentGitRef(cwd);
   }
 
+  config.newVersion = config.to.startsWith("v")
+    ? config.to.slice(1)
+    : config.to;
+
   if (config.output) {
     config.output =
       config.output === true ? defaultOutput : resolve(cwd, config.output);
