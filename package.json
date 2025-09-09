@@ -1,8 +1,8 @@
 {
-  "name": "changelogen",
-  "version": "0.6.2",
-  "description": "Generate Beautiful Changelogs using Conventional Commits",
-  "repository": "unjs/changelogen",
+  "name": "changelogen-gh",
+  "version": "0.1.0",
+  "description": "Generate Beautiful Changelogs using Conventional Commits, Github Action optimized.",
+  "repository": "uchouT/changelogen",
   "license": "MIT",
   "sideEffects": false,
   "type": "module",
@@ -13,7 +13,7 @@
     }
   },
   "bin": {
-    "changelogen": "./dist/cli.mjs"
+    "changelogen-gh": "./dist/cli.mjs"
   },
   "types": "./dist/index.d.mts",
   "files": [
