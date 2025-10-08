@@ -45,7 +45,12 @@ export default async function defaultMain(args: Argv) {
     .map((c) => ({ ...c, type: c.type.toLowerCase() /* #198 */ }))
     .filter(
       (c) =>
-        !(c.type === "chore" && c.scope === "deps" && !c.isBreaking)
+        config.types[c.type] &&
+        !(
+          c.type === "chore" &&
+          ["deps", "release"].includes(c.scope) &&
+          !c.isBreaking
+        )
     );
 
   // Shortcut for canary releases
